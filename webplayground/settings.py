@@ -123,9 +123,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Auth redirect
-LOGIN_REDIRECT_URL = 'home'
+# LOGIN_REDIRECT_URL = 'home'  # por defecto va a accounts/profile/
 LOGOUT_REDIRECT_URL = 'home'
 
 # Email configuration
