@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'pages.apps.PagesConfig',
+    'profiles',
+    'messenger',
 ]
 
 MIDDLEWARE = [

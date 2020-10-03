@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from pages.urls import pages_patterns
+from profiles.urls import profiles_patterns
+from messenger.urls import messenger_patterns
 from django.conf import settings
 
 urlpatterns = [
@@ -26,6 +28,12 @@ urlpatterns = [
     # paths del auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
+
+    # paths de perfiles publicos
+    path('profiles/', include(profiles_patterns)),
+
+    # paths de messenger
+    path('messenger/', include(messenger_patterns)),
 ]
 
 if settings.DEBUG:

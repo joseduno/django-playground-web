@@ -30,6 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'pages:pages' %}">Páginas</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profiles:list' %}">Perfiles</a>
+              </li>
             </ul>
             <ul class="navbar-nav">
               {% if not request.user.is_authenticated %}
@@ -42,6 +45,9 @@
               {% else %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'profile' %}">Perfil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'messenger:list' %}">Messenger</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}">Terminar sesión</a>
