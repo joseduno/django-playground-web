@@ -23,3 +23,26 @@ class ThreadDetail(DetailView):
         if self.request.user not in obj.users.all():  # filtrando
             raise Http404()
         return obj
+
+
+def add_message(request, pk):
+    json_response = {'created': False}
+    if request.user.is_authenticated:
+        content = request.GET.get('content', None)
+        if content:
+            thread = get_object_or_404(Thread, pk=pk)
+            message = Message.objects.create(user=request.user, content=content)
+            thread.messages.add(message)
+            json_response['created'] = True
+            if len(thread.messages.all()) is 1:
+                json_response['first'] = True
+    else:
+        raise Http404('User is not authenticated')
+    return JsonResponse(json_response)
+
+
+@login_required  # Se utiliza en method_decortator cuando la vista es basada en clases
+def start_thread(request, username):
+    user = get_object_or_404(User, username=username)
+    thread = Thread.objects.find_or_create(request.user, user)
+    return redirect(reverse_lazy('messenger:detail', args=[thread.pk]))

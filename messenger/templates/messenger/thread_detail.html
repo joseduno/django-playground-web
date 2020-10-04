@@ -61,10 +61,10 @@
             <!-- Aquí crearemos el formulario -->
             <textarea id="content" class="form-control mb-2" rows="2" placeholder="Escribe tu mensaje aquí"></textarea>
             <button id="send" class="btn btn-primary btn-sm btn-block" disabled>Enviar mensaje</button>
-            {% comment %} <script>
+            <script>
               var send = document.getElementById("send");
               send.addEventListener("click", function(){
-                var content = encodeURIComponent(document.getElementById("content").value); // &
+                var content = encodeURIComponent(document.getElementById("content").value);
                 if (content.length > 0){
                   document.getElementById("content").value = '';
                   send.disabled = true;
@@ -105,9 +105,9 @@
                 var thread = document.getElementById("thread");
                 thread.scrollTop = thread.scrollHeight;
               }
-
               ScrollBottomInThread();
-            </script> {% endcomment %}
+              
+            </script>
           </div>
         </div>
     </div>
